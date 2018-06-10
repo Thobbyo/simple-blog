@@ -16,16 +16,11 @@
         
         </div>
         <div class="main">
-            <ul id="posts">
-                each post in json
-                    li
-                        div(class="card")
-                            h5= post.titre
-                            p(class="card-text")= post.resume
-                            a( href="post/"+post._id, class="btn btn-primary") Lire la suite
-                        div( class="card-footer text-muted")
-                            p= post.auteur
-            </ul>
+            div(class="article")
+                h2= json.titre
+                h4(id="date") json.date
+                h4(id="auteur")= json.auteur
+                p(class="article-resume")= json.resume
         </div>
     </body>
 </html>

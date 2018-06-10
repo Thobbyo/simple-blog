@@ -3,29 +3,24 @@
     <head>
         <meta charset="utf-8">
         <title>Blog</title>
+        script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
         link( rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm", crossorigin="anonymous")
         style
             include style.css
     </head>
-
     <body>
         <div class="sidenav">
             <a href="/">Acceuil</a>
             <a href="/post/create">Poster</a>
             <a href="#">A propos</a>
-        
         </div>
         <div class="main">
-            <ul id="posts">
-                each post in json
-                    li
-                        div(class="card")
-                            h5= post.titre
-                            p(class="card-text")= post.resume
-                            a( href="post/"+post._id, class="btn btn-primary") Lire la suite
-                        div( class="card-footer text-muted")
-                            p= post.auteur
-            </ul>
+            <form action="/post/create" method="POST">
+                <input id="titre" name="titre" placeholder="titre" type="text">
+                <input id="resume" name="resume" placeholder="resume" type="text">
+                <input id="auteur" name="auteur" placeholder="auteur" type="text">
+                <input type="submit" id="publier" value="publier">
+            </form>
         </div>
     </body>
 </html>

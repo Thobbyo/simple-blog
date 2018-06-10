@@ -3,7 +3,12 @@ var posts = require("./posts");
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
-    res.render("index");
+
+    var db = app.client.db("blog");
+    var collection = db.collection('articles');
+    collection.find().toArray(function(err, result){
+      res.render("index", {"json" : result});
+    });
   });
 
   // Register posts endpoint
